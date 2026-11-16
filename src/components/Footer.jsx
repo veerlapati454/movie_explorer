@@ -12,12 +12,17 @@ const socials = [
   { name: "LinkedIn", icon: <><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 11v6M8 7.5v.01M12 17v-6M12 13c0-1.5 1-2 2-2s2 .8 2 2v4" /></> },
 ];
 
+const goTop = () => {
+  close();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="foot-grid">
         <div>
-          <Link to="/" className="logo" aria-label="Home"><img className="logo-img" src={logo} alt="Logo" /></Link>
+          <Link to="/" onClick={goTop} className="logo" aria-label="Home"><img className="logo-img" src={logo} alt="Logo" /></Link>
           <p className="muted">Find what to watch tonight. Search, filter and save the movies you love.</p>
           <div className="social">
             {socials.map((s) => (

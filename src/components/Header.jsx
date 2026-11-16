@@ -15,9 +15,13 @@ export default function Header({ favCount }) {
     navigate(`/?q=${encodeURIComponent(q.trim())}#explore`);
     setQ(""); close();
   };
+  const goTop = () => {
+  close();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
   return (
     <header className="nav">
-      <Link to="/" className="logo" onClick={close} aria-label="Home">
+      <Link to="/" className="logo" onClick={goTop} aria-label="Home">
         <img className="logo-img" src={logo} alt="Logo" />
       </Link>
       <button className="burger" aria-label="Toggle menu" aria-expanded={open} onClick={() => setOpen(!open)}>
